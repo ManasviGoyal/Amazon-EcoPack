@@ -386,7 +386,6 @@ function App() {
     { id: 'echo_dot', name: 'Echo Dot', length: 10, width: 10, height: 5, weight: 0.3, imageUrl: 'https://placehold.co/60x60/232F3E/FFFFFF?text=Echo' },
     { id: 'kindle', name: 'Kindle', length: 17, width: 12, height: 1, weight: 0.18, imageUrl: 'https://placehold.co/60x60/FFFFFF/000000?text=Kindle' },
     { id: 'fire_tv_stick', name: 'Fire TV Stick', length: 15, width: 4, height: 1.5, weight: 0.05, imageUrl: 'https://placehold.co/60x60/FF4500/FFFFFF?text=FireTV' },
-    // FIX: Changed 'name: 20' to 'name: "Fire Tablet"'
     { id: 'fire_tablet', name: 'Fire Tablet', length: 20, width: 14, height: 1, weight: 0.3, imageUrl: 'https://placehold.co/60x60/8A2BE2/FFFFFF?text=Tablet' },
   ], []);
 
@@ -522,7 +521,7 @@ function App() {
               {cartAsList.length === 0 ? (
                 <p className="text-gray-600 italic text-center my-auto">Add items from the list.</p>
               ) : (
-                <ul className="space-y-3 overflow-y-auto max-h-[200px] pr-2">
+                <ul className="space-y-3 overflow-y-auto pr-2"> {/* Removed max-h-[200px] */}
                   {cartAsList.map(item => (
                     <li key={item.id} className="flex items-center bg-white p-2 rounded-md shadow-sm border">
                       <img src={item.imageUrl} alt={item.name} className="w-12 h-12 object-contain rounded mr-3" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/48x48/CCCCCC/000000?text=Item"; }} />
@@ -553,7 +552,7 @@ function App() {
                 {Object.keys(savedForLaterItems).length === 0 ? (
                     <p className="text-gray-600 italic text-center my-auto">No items saved for later.</p>
                 ) : (
-                    <ul className="space-y-3 overflow-y-auto max-h-[200px] pr-2">
+                    <ul className="space-y-3 overflow-y-auto pr-2"> {/* Removed max-h-[200px] */}
                         {Object.values(savedForLaterItems).map(item => (
                             <li key={item.id} className="flex items-center bg-white p-2 rounded-md shadow-sm border">
                                 <img src={item.imageUrl} alt={item.name} className="w-12 h-12 object-contain rounded mr-3" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/48x48/CCCCCC/000000?text=Item"; }} />
