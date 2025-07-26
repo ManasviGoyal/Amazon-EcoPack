@@ -386,6 +386,7 @@ function App() {
     { id: 'echo_dot', name: 'Echo Dot', length: 10, width: 10, height: 5, weight: 0.3, imageUrl: 'https://placehold.co/60x60/232F3E/FFFFFF?text=Echo' },
     { id: 'kindle', name: 'Kindle', length: 17, width: 12, height: 1, weight: 0.18, imageUrl: 'https://placehold.co/60x60/FFFFFF/000000?text=Kindle' },
     { id: 'fire_tv_stick', name: 'Fire TV Stick', length: 15, width: 4, height: 1.5, weight: 0.05, imageUrl: 'https://placehold.co/60x60/FF4500/FFFFFF?text=FireTV' },
+    // FIX: Changed 'name: 20' to 'name: "Fire Tablet"'
     { id: 'fire_tablet', name: 'Fire Tablet', length: 20, width: 14, height: 1, weight: 0.3, imageUrl: 'https://placehold.co/60x60/8A2BE2/FFFFFF?text=Tablet' },
   ], []);
 
@@ -475,9 +476,11 @@ function App() {
           <p className="mt-2 text-lg sm:text-xl opacity-90">Search for products to optimize your delivery.</p>
         </header>
 
-        <main className="p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-5 gap-8">
+        {/* Changed lg:grid-cols-5 to lg:grid-cols-10 for more granular control */}
+        <main className="p-6 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-10 gap-8">
           {/* Left Column: Products & Search */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          {/* Changed from lg:col-span-2 to lg:col-span-3 to make it slightly wider */}
+          <div className="lg:col-span-3 flex flex-col gap-6">
             <section>
               <h2 className="text-2xl font-bold text-[#131921] mb-4 flex items-center gap-2">
                 <Search className="w-6 h-6 text-[#007185]" /> Find Products
@@ -491,14 +494,17 @@ function App() {
               />
             </section>
             <section className="bg-gray-50 p-4 rounded-lg shadow-inner border flex-grow">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2">
+              {/* Changed to a single column list layout */}
+              <div className="grid grid-cols-1 gap-3 max-h-[500px] overflow-y-auto pr-2">
                 {filteredItems.map(item => (
-                  <div key={item.id} className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex flex-col text-center">
-                    <img src={item.imageUrl} alt={item.name} className="w-20 h-20 object-contain mb-2 mx-auto" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/80x80/CCCCCC/000000?text=Item"; }} />
-                    <span className="font-semibold text-[#007185] text-sm flex-grow">{item.name}</span>
-                    <span className="text-xs text-gray-500 my-1">{`${item.length}x${item.width}x${item.height} cm, ${item.weight} kg`}</span>
-                    <button onClick={() => handleUpdateQuantity(item, 1)} className="mt-2 w-full bg-[#FF9900] text-white font-bold py-2 px-3 rounded-lg hover:bg-[#E68A00] transition-colors flex items-center justify-center gap-2">
-                       <PlusCircle size={16} /> Add
+                  <div key={item.id} className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex items-center"> {/* Changed to flex items-center for horizontal layout */}
+                    {/* Removed item icons */}
+                    <div className="flex-grow"> {/* Added div to wrap name and dimensions */}
+                        <span className="font-semibold text-[#007185] text-sm block">{item.name}</span> {/* block for new line */}
+                        <span className="text-xs text-gray-500">{`${item.length}x${item.width}x${item.height} cm, ${item.weight} kg`}</span>
+                    </div>
+                    <button onClick={() => handleUpdateQuantity(item, 1)} className="ml-auto bg-[#FF9900] text-white font-bold py-1.5 px-3 rounded-lg hover:bg-[#E68A00] transition-colors flex items-center justify-center gap-1 text-sm">
+                       <PlusCircle size={14} /> Add
                     </button>
                   </div>
                 ))}
@@ -507,8 +513,9 @@ function App() {
           </div>
 
           {/* Middle Column: Cart & Saved for Later */}
-          <div className="lg:col-span-1 flex flex-col gap-6">
-            <section className="bg-green-50 p-4 rounded-lg shadow-inner border-2 border-dashed border-green-300">
+          {/* Changed from lg:col-span-2 to lg:col-span-4 to make it wider */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <section className="bg-green-50 p-4 rounded-lg shadow-inner border-2 border-dashed border-green-300 flex-grow">
               <h2 className="text-2xl font-bold text-green-800 mb-4 flex items-center gap-2">
                 <ShoppingBag className="w-6 h-6" /> Your Cart ({totalItemsInCart})
               </h2>
@@ -565,7 +572,8 @@ function App() {
           </div>
 
           {/* Right Column: Metrics & Visualization for Optimal approach */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          {/* Changed from lg:col-span-2 to lg:col-span-3 to make it slightly less wide */}
+          <div className="lg:col-span-3 flex flex-col gap-6">
             <section className="bg-gray-50 p-4 rounded-lg shadow-inner border">
                 <h2 className="text-2xl font-bold text-[#131921] mb-4">Optimal Shipment Plan</h2>
                 <PackingVisualization title="Optimized for Sustainability" metrics={optimalMetrics} />
