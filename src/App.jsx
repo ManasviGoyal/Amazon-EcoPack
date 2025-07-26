@@ -470,7 +470,7 @@ function App() {
         <header className="bg-gradient-to-r from-[#232F3E] to-[#131921] p-6 text-white text-center rounded-t-xl">
           <h1 className="text-3xl sm:text-4xl font-bold flex items-center justify-center gap-3">
             <Leaf className="w-8 h-8 sm:w-10 sm:h-10 text-[#FF9900]" />
-            <span>Smart Cart <span className="text-[#FF9900]">Sustainability</span> Optimizer</span>
+            <span>Amazon <span className="text-[#FF9900]">Eco-Pack</span></span>
           </h1>
           <p className="mt-2 text-lg sm:text-xl opacity-90">Search for products to optimize your delivery.</p>
         </header>
