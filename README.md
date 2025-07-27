@@ -1,5 +1,14 @@
 # Amazon EcoPack
+We love online shopping, but every package carries a hidden environmental cost!
 
+- 📦 Half-Empty Boxes: Trucks filled with more air than products.
+- 🌳 Wasted Resources: Unnecessary packaging material.
+- 💨 Carbon Emissions: More boxes = more weight, more trips, more CO2.
+
+Millions of packages, every day, contributing to this waste. 
+It's a massive but solvable problem!
+
+## Motivation
 The inspiration for EcoPack stemmed from a growing awareness of the environmental footprint of everyday online shopping. I, like many, frequently use platforms like Amazon for convenience. However, I started noticing a recurring issue: packages often arrived with more empty space than product, leading to excessive packaging waste and unnecessary carbon emissions. This "hidden cost of convenience" resonated deeply with me.
 
 I understood that Amazon already offers initiatives like later-day delivery to encourage lower carbon emissions by consolidating shipments. My vision was to build upon this by providing users with real-time, granular insights into the sustainability of their current order's packaging. I wanted to empower users to make more informed decisions right at the cart level, not just at checkout, by showing them the direct impact of their choices on packaging efficiency and CO₂.
